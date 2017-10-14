@@ -1,0 +1,4 @@
+CREATE TABLE `user` (
+	`id` VARCHAR(50) NULL,
+	`name` VARCHAR(50) NULL
+)
