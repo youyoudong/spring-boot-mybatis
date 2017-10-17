@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 用户SQL -->
 <mapper namespace="com.wangz.springBoot.dao.UserDao">
+
+    <!-- BaseResultMap -->
     <resultMap id="BaseResultMap" type="User">
         <id column="id" property="id" javaType="String" jdbcType="VARCHAR" />
         <result column="name" property="name" javaType="String" jdbcType="VARCHAR" />
     </resultMap>
 
+    <!-- 获取所有user -->
     <select id="getAll" resultMap="BaseResultMap">
         SELECT id,name FROM USER
     </select>
+
+    <!-- 插入user信息 -->
+    <insert id="insert" parameterType="User">
+        INSERT INTO User (id, name) VALUES (#{id}, #{name})
+    </insert>
 </mapper>

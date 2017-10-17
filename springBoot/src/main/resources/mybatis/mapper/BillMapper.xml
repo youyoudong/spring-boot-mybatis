@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 账单SQL -->
+<mapper namespace="com.wangz.springBoot.dao.BillDao">
+
+    <!-- BaseResultMap -->
+    <resultMap id="BaseResultMap" type="Bill">
+        <id column="id" property="id" jdbcType="VARCHAR" javaType="String" />
+        <result column="name" property="name" jdbcType="VARCHAR" javaType="String" />
+        <result column="bill_money" property="billMoney" jdbcType="DOUBLE" javaType="double" />
+        <result column="bill_date" property="billDate" jdbcType="DATE" javaType="date" />
+        <result column="bill_type_id" property="billTypeId" jdbcType="VARCHAR" javaType="String" />
+        <result column="user_id" property="userId" jdbcType="VARCHAR" javaType="String" />
+    </resultMap>
+
+    <!-- 插入信息 -->
+    <insert id="insertBill" parameterType="Bill">
+        INSERT INTO BILL (id, name, bill_money, bill_date, bill_type_id, user_id)
+          VALUES
+          (#{id}, #{name}, #{billMoney}, #{billDate}, #{billTypeId}, #{userId})
+    </insert>
+
+</mapper>

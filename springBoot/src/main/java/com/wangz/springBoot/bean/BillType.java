@@ -1,16 +1,19 @@
 package com.wangz.springBoot.bean;
 
 /**
- * 用户表user
- * Created by wangz on 2017/10/14.
+ * 账单分类表bill_type
+ * Created by wangz on 2017/10/16.
  */
-public class User {
+public class BillType {
 
     /* id */
     private String id;
 
-    /* 用户名 */
+    /* 账单分类名称 */
     private String name;
+
+    /* 上级ID */
+    private String parentId;
 
     public String getId() {
         return id;
@@ -26,5 +29,13 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
     }
 }
