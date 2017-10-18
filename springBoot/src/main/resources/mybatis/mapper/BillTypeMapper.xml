@@ -11,8 +11,28 @@
         <result column="parent_id" property="parentId" jdbcType="VARCHAR" javaType="String" />
     </resultMap>
 
+    <sql id="BaseColumn">
+        id, name, parent_id
+    </sql>
+
     <!-- 插入信息 -->
     <insert id="insertBillType" parameterType="BillType">
         INSERT INTO BILL_TYPE (id, name, parent_id) VALUES (#{id}, #{name}, #{parentId})
     </insert>
+
+    <!-- 查询账单分类名称是否重复 -->
+    <select id="selectBillTypeByName" parameterType="String">
+        SELECT COUNT(DISTINCT ID) FROM BILL_TYPE WHERE NAME = #{name}
+    </select>
+
+    <!-- 查询所有一级账单分类 -->
+    <select id="selectAllParentBillType" resultMap="BaseResultMap">
+        SELECT <include refid="BaseColumn" /> FROM BILL_TYPE WHERE parent_id IS NULL OR parent_id = ""
+    </select>
+
+    <!-- 查询一级账单分类下的所有二级账单分类 -->
+    <select id="selectAllChildBillType" parameterType="String" resultMap="BaseResultMap">
+        SELECT <include refid="BaseColumn" /> FROM BILL_TYPE WHERE parent_id = #{parentId}
+    </select>
+
 </mapper>

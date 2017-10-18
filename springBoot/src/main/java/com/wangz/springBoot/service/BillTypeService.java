@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -25,6 +26,32 @@ public class BillTypeService {
     public void insertBillType(BillType bt){
         String id = UUID.randomUUID().toString().replaceAll("-", "");
         bt.setId(id);
-        billTypeDao.insertBillType(bt);
+        this.billTypeDao.insertBillType(bt);
+    }
+
+    /**
+     * 查询账单分类名称是否重复
+     * @param name
+     * @return
+     */
+    public int selectBillTypeByName(String name){
+        return this.billTypeDao.selectBillTypeByName(name);
+    }
+
+    /**
+     * 查询所有一级账单分类
+     * @return list<BillType>
+     */
+    public List<BillType> selectAllParentBillType(){
+        return this.billTypeDao.selectAllParentBillType();
+    }
+
+    /**
+     * 查询一级账单分类下的所有二级账单分类
+     * @param parentId
+     * @return list<BillType>
+     */
+    public List<BillType> selectAllChildBillType(String parentId){
+        return this.billTypeDao.selectAllChildBillType(parentId);
     }
 }
