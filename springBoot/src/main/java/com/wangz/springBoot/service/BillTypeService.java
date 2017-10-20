@@ -4,7 +4,6 @@ import com.wangz.springBoot.bean.BillType;
 import com.wangz.springBoot.dao.BillTypeDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.UUID;
@@ -53,5 +52,14 @@ public class BillTypeService {
      */
     public List<BillType> selectAllChildBillType(String parentId){
         return this.billTypeDao.selectAllChildBillType(parentId);
+    }
+
+    /**
+     * 修改账单分类名称
+     * @param billType
+     * @return
+     */
+    public int updateBillType(BillType billType){
+        return this.billTypeDao.updateBillType(billType);
     }
 }

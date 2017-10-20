@@ -37,4 +37,11 @@ public interface BillTypeDao {
      * @return list<BillType>
      */
     List<BillType> selectAllChildBillType(String parentId);
+
+    /**
+     * 修改账单分类名称
+     * @param billType
+     * @return
+     */
+    int updateBillType(BillType billType);
 }

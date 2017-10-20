@@ -113,4 +113,29 @@ public class BillTypeController {
         return resultMap;
     }
 
+    /**
+     * 修改账单分类名称
+     * @param params
+     * @return
+     */
+    @RequestMapping("/updateBillType")
+    public Map<String, Object> updateBillType(@RequestBody Map<String, Object> params){
+
+        Map<String, Object> resultMap = new HashMap<String, Object>();
+        String id = params.get("id") != null ? (String) params.get("id") : "";
+        String name = params.get("name") != null ? (String) params.get("name") : "";
+
+        if (!id.equals("") && !name.equals("")) {
+            BillType billType = new BillType();
+            billType.setId(id);
+            billType.setName(name);
+            this.billTypeService.updateBillType(billType);
+        } else {
+            resultMap.put("flag", false);
+            resultMap.put("message", "params is null");
+        }
+
+        return resultMap;
+    }
+
 }

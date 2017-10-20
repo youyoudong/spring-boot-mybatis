@@ -35,4 +35,9 @@
         SELECT <include refid="BaseColumn" /> FROM BILL_TYPE WHERE parent_id = #{parentId}
     </select>
 
+    <!-- 修改账单分类名称 -->
+    <update id="updateBillType" parameterType="BillType">
+        UPDATE BILL_TYPE SET NAME = #{name} WHERE ID = #{id}
+    </update>
+
 </mapper>
