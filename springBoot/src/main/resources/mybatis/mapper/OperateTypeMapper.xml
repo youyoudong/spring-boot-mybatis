@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 操作日志SQL -->
+<mapper namespace="com.wangz.springBoot.dao.OperateTypeDao">
+
+    <resultMap id="BaseResultMap" type="OperateType">
+        <id column="id" property="id" javaType="String" jdbcType="VARCHAR" />
+        <result column="user_id" property="userId" javaType="String" jdbcType="VARCHAR" />
+        <result column="operate_date" property="operateDate" javaType="Date" jdbcType="DATE" />
+        <result column="table_name" property="tableName" javaType="String" jdbcType="VARCHAR" />
+        <result column="operate_type" property="operateType" javaType="String" jdbcType="VARCHAR" />
+        <result column="remark" property="remark" javaType="String" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="BaseColumn">
+        id, user_id, operate_date, table_name, operate_type, remark
+    </sql>
+
+    <!-- 插入数据 -->
+    <insert id="insertOperateType" parameterType="OperateType">
+        INSERT INTO OPERATE_TYPE (id, user_id, operate_date, table_name, operate_type, remark) VALUES
+        (#{id}, #{userId}, #{operateDate}, #{tableName}, #{operateType}, #{remark})
+    </insert>
+
+</mapper>
