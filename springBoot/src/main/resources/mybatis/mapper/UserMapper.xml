@@ -10,6 +10,10 @@
         <result column="name" property="name" javaType="String" jdbcType="VARCHAR" />
     </resultMap>
 
+    <sql id="BaseColumn">
+        id, name
+    </sql>
+
     <!-- 获取所有user -->
     <select id="getAll" resultMap="BaseResultMap">
         SELECT id,name FROM USER
@@ -19,4 +23,9 @@
     <insert id="insert" parameterType="User">
         INSERT INTO User (id, name) VALUES (#{id}, #{name})
     </insert>
+
+    <!-- 根据id获取user -->
+    <select id="getUserById" resultMap="BaseResultMap" parameterType="String">
+        SELECT <include refid="BaseColumn" /> FROM USER WHERE id = #{id}
+    </select>
 </mapper>

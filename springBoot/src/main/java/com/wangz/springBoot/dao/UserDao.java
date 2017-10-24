@@ -24,4 +24,11 @@ public interface UserDao {
      * @return
      */
     int insert(User user);
+
+    /**
+     * 根据id获取user
+     * @param id
+     * @return
+     */
+    User getUserById(String id);
 }

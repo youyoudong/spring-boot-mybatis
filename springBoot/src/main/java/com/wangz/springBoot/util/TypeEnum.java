@@ -16,11 +16,11 @@ public enum TypeEnum {
     private final int key;
     private final String value;
 
-    private int getKey() {
+    public int getKey() {
         return key;
     }
 
-    private String getValue() {
+    public String getValue() {
         return value;
     }
 

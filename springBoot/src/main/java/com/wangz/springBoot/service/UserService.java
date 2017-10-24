@@ -36,4 +36,13 @@ public class UserService {
         user.setId(id);
         return userDao.insert(user);
     }
+
+    /**
+     * 根据id获取user
+     * @param id
+     * @return
+     */
+    public User getUserById(String id){
+        return userDao.getUserById(id);
+    }
 }

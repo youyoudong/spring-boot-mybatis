@@ -13,12 +13,11 @@ public enum TableEnum {
 
     private final String key;
 
-    private String getKey() {
+    public String getKey() {
         return key;
     }
 
     TableEnum(String key) {
         this.key = key;
     }
-
 }

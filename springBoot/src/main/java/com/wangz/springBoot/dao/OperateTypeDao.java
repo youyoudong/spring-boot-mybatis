@@ -1,5 +1,6 @@
 package com.wangz.springBoot.dao;
 
+import com.wangz.springBoot.bean.OperateLog;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -13,5 +14,5 @@ public interface OperateTypeDao {
      * 插入数据
      * @return
      */
-    int insertOperateType();
+    int insertOperateType(OperateLog operateLog);
 }
