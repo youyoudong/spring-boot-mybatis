@@ -12,13 +12,14 @@
         <result column="bill_date" property="billDate" jdbcType="DATE" javaType="date" />
         <result column="bill_type_id" property="billTypeId" jdbcType="VARCHAR" javaType="String" />
         <result column="user_id" property="userId" jdbcType="VARCHAR" javaType="String" />
+        <result column="pay_type_id" property="payTypeId" jdbcType="VARCHAR" javaType="String" />
     </resultMap>
 
     <!-- 插入信息 -->
     <insert id="insertBill" parameterType="Bill">
-        INSERT INTO BILL (id, name, bill_money, bill_date, bill_type_id, user_id)
+        INSERT INTO BILL (id, name, bill_money, bill_date, bill_type_id, user_id, pay_type_id)
           VALUES
-          (#{id}, #{name}, #{billMoney}, #{billDate}, #{billTypeId}, #{userId})
+          (#{id}, #{name}, #{billMoney}, #{billDate}, #{billTypeId}, #{userId}, #{payTypeId})
     </insert>
 
 </mapper>

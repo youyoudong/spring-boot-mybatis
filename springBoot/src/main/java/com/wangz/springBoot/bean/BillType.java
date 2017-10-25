@@ -15,6 +15,8 @@ public class BillType {
     /* 上级ID */
     private String parentId;
 
+    private BillType billType;
+
     public String getId() {
         return id;
     }
@@ -37,5 +39,13 @@ public class BillType {
 
     public void setParentId(String parentId) {
         this.parentId = parentId;
+    }
+
+    public BillType getBillType() {
+        return billType;
+    }
+
+    public void setBillType(BillType billType) {
+        this.billType = billType;
     }
 }

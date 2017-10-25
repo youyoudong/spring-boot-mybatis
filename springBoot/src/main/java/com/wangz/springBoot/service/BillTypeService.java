@@ -62,4 +62,13 @@ public class BillTypeService {
     public int updateBillType(BillType billType){
         return this.billTypeDao.updateBillType(billType);
     }
+
+    /**
+     * 根据id获取账单分类信息
+     * @param id
+     * @return
+     */
+    public BillType selectBillTypeById(String id){
+        return this.billTypeDao.selectBillTypeById(id);
+    }
 }

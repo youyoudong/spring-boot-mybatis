@@ -26,6 +26,9 @@ public class Bill {
     /* 用户id */
     private String userId;
 
+    /*支出类型id*/
+    private String payTypeId;
+
     /* 账单分类信息 */
     private BillType billType;
 
@@ -78,6 +81,14 @@ public class Bill {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getPayTypeId() {
+        return payTypeId;
+    }
+
+    public void setPayTypeId(String payTypeId) {
+        this.payTypeId = payTypeId;
     }
 
     public BillType getBillType() {

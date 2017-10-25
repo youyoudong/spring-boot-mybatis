@@ -44,4 +44,11 @@ public interface BillTypeDao {
      * @return
      */
     int updateBillType(BillType billType);
+
+    /**
+     * 根据id获取账单分类信息
+     * @param id
+     * @return
+     */
+    BillType selectBillTypeById(String id);
 }

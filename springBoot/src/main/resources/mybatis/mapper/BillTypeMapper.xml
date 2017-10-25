@@ -11,6 +11,10 @@
         <result column="parent_id" property="parentId" jdbcType="VARCHAR" javaType="String" />
     </resultMap>
 
+    <resultMap id="ResultMapForList" type="BillType" extends="BaseResultMap">
+        <association property="billType" column="parent_id" javaType="BillType" select="com.wangz.springBoot.dao.BillTypeDao.selectBillTypeById" />
+    </resultMap>
+
     <sql id="BaseColumn">
         id, name, parent_id
     </sql>
@@ -39,5 +43,10 @@
     <update id="updateBillType" parameterType="BillType">
         UPDATE BILL_TYPE SET NAME = #{name} WHERE ID = #{id}
     </update>
+
+    <!-- 根据id获取账单分类信息 -->
+    <select id="selectBillTypeById" parameterType="String" resultMap="ResultMapForList">
+        SELECT <include refid="BaseColumn" /> FROM bill_type where parent_id IS NOT NULL
+    </select>
 
 </mapper>
