@@ -29,6 +29,9 @@ public class OperateType {
     /* 状态0正常1删除 */
     private int status;
 
+    /* 操作人 */
+    private User user;
+
     public String getId() {
         return id;
     }
@@ -83,5 +86,13 @@ public class OperateType {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

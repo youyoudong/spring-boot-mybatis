@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -37,5 +38,21 @@ public class OperateTypeService {
         operateType.setRemark("用户：" + user.getName() + "于" + new Date() + "对表：" + tableName + "进行了" + typeName + "操作");
 
         return operateTypeDao.insertOperateType(operateType);
+    }
+
+    /**
+     * 查询所有记录包括已删除
+     * @return list<OperateType>
+     */
+    public List<OperateType> findAllWithDelete(){
+        return operateTypeDao.findAllWithDelete();
+    }
+
+    /**
+     * 查询所有未删除的数据
+     * @return list<OperateType>
+     */
+    public List<OperateType> findAll(){
+        return operateTypeDao.findAll();
     }
 }

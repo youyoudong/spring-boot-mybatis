@@ -14,6 +14,10 @@
         <result column="status" property="status" jdbcType="INTEGER" javaType="int" />
     </resultMap>
 
+    <resultMap id="ResultMapWithUser" type="OperateType" extends="BaseResultMap">
+        <association column="user_id" property="user" select="com.wangz.springBoot.dao.UserDao.getUserById" />
+    </resultMap>
+
     <sql id="BaseColumn">
         id, user_id, operate_date, table_name, operate_type, remark, status
     </sql>
@@ -23,5 +27,15 @@
         INSERT INTO OPERATE_TYPE ( <include refid="BaseColumn" /> ) VALUES
         (#{id}, #{userId}, #{operateDate}, #{tableName}, #{operateType}, #{remark}, #{status})
     </insert>
+
+    <!-- 查询所有记录包括已删除的数据 -->
+    <select id="findAllWithDelete" resultMap="ResultMapWithUser">
+        SELECT <include refid="BaseColumn"/> FROM OPERATE_TYPE
+    </select>
+
+    <!-- 查询未删除的所有记录 -->
+    <select id="findAll" resultMap="ResultMapWithUser">
+        SELECT <include refid="BaseColumn"/> FROM OPERATE_TYPE WHERE status = 0
+    </select>
 
 </mapper>
