@@ -9,6 +9,7 @@
         <id column="id" property="id" jdbcType="VARCHAR" javaType="String" />
         <result column="name" property="name" jdbcType="VARCHAR" javaType="String" />
         <result column="parent_id" property="parentId" jdbcType="VARCHAR" javaType="String" />
+        <result column="status" property="status" jdbcType="INTEGER" javaType="int" />
     </resultMap>
 
     <resultMap id="ResultMapForList" type="BillType" extends="BaseResultMap">
@@ -16,12 +17,12 @@
     </resultMap>
 
     <sql id="BaseColumn">
-        id, name, parent_id
+        id, name, parent_id, status
     </sql>
 
     <!-- 插入信息 -->
     <insert id="insertBillType" parameterType="BillType">
-        INSERT INTO BILL_TYPE (id, name, parent_id) VALUES (#{id}, #{name}, #{parentId})
+        INSERT INTO BILL_TYPE ( <include refid="BaseColumn" /> ) VALUES (#{id}, #{name}, #{parentId}, #{status})
     </insert>
 
     <!-- 查询账单分类名称是否重复 -->

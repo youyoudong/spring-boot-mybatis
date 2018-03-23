@@ -8,10 +8,11 @@
     <resultMap id="BaseResultMap" type="User">
         <id column="id" property="id" javaType="String" jdbcType="VARCHAR" />
         <result column="name" property="name" javaType="String" jdbcType="VARCHAR" />
+        <result column="status" property="status" javaType="int" jdbcType="INTEGER" />
     </resultMap>
 
     <sql id="BaseColumn">
-        id, name
+        id, name, status
     </sql>
 
     <!-- 获取所有user -->
@@ -21,7 +22,7 @@
 
     <!-- 插入user信息 -->
     <insert id="insert" parameterType="User">
-        INSERT INTO User (id, name) VALUES (#{id}, #{name})
+        INSERT INTO User ( <include refid="BaseColumn" /> ) VALUES (#{id}, #{name}, #{status})
     </insert>
 
     <!-- 根据id获取user -->

@@ -1,7 +1,7 @@
 package com.wangz.springBoot.controller;
 
 import com.wangz.springBoot.bean.BillType;
-import com.wangz.springBoot.bean.OperateLog;
+import com.wangz.springBoot.bean.OperateType;
 import com.wangz.springBoot.bean.User;
 import com.wangz.springBoot.service.BillTypeService;
 import com.wangz.springBoot.service.OperateTypeService;

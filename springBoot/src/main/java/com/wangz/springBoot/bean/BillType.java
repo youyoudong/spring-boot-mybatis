@@ -15,6 +15,9 @@ public class BillType {
     /* 上级ID */
     private String parentId;
 
+    /* 状态0正常1删除 */
+    private int status;
+
     private BillType billType;
 
     public String getId() {
@@ -39,6 +42,14 @@ public class BillType {
 
     public void setParentId(String parentId) {
         this.parentId = parentId;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public BillType getBillType() {

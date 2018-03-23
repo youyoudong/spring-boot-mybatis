@@ -12,6 +12,9 @@ public class User {
     /* 用户名 */
     private String name;
 
+    /* 状态0正常1删除 */
+    private int status;
+
     public String getId() {
         return id;
     }
@@ -26,5 +29,13 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

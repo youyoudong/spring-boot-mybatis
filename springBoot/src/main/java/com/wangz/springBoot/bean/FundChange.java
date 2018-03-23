@@ -23,6 +23,9 @@ public class FundChange {
     /* 资金来源表关联id */
     private String sourcesId;
 
+    /* 状态0正常1删除 */
+    private int status;
+
     public String getId() {
         return id;
     }
@@ -61,5 +64,13 @@ public class FundChange {
 
     public void setSourcesId(String sourcesId) {
         this.sourcesId = sourcesId;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

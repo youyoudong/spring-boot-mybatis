@@ -9,7 +9,7 @@ public enum TableEnum {
     BILL("bill"),
     BILLTYPE("bill_type"),
     USER("user"),
-    OPERATELOG("operate_log");
+    OPERATETYPE("operate_type");
 
     private final String key;
 

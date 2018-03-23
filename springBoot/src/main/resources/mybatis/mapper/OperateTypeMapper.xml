@@ -5,22 +5,23 @@
 <mapper namespace="com.wangz.springBoot.dao.OperateTypeDao">
 
     <resultMap id="BaseResultMap" type="OperateType">
-        <id column="id" property="id" javaType="String" jdbcType="VARCHAR" />
-        <result column="user_id" property="userId" javaType="String" jdbcType="VARCHAR" />
-        <result column="operate_date" property="operateDate" javaType="Date" jdbcType="DATE" />
-        <result column="table_name" property="tableName" javaType="String" jdbcType="VARCHAR" />
-        <result column="operate_type" property="operateType" javaType="String" jdbcType="VARCHAR" />
-        <result column="remark" property="remark" javaType="String" jdbcType="VARCHAR" />
+        <id column="id" property="id" jdbcType="VARCHAR" javaType="String" />
+        <result column="user_id" property="userId" jdbcType="VARCHAR" javaType="String" />
+        <result column="operate_date" property="operateDate" jdbcType="DATE" javaType="Date" />
+        <result column="table_name" property="tableName" jdbcType="VARCHAR" javaType="String" />
+        <result column="operate_type" property="operateType" jdbcType="VARCHAR" javaType="String" />
+        <result column="remark" property="remark" jdbcType="VARCHAR" javaType="String" />
+        <result column="status" property="status" jdbcType="INTEGER" javaType="int" />
     </resultMap>
 
     <sql id="BaseColumn">
-        id, user_id, operate_date, table_name, operate_type, remark
+        id, user_id, operate_date, table_name, operate_type, remark, status
     </sql>
 
     <!-- 插入数据 -->
     <insert id="insertOperateType" parameterType="OperateType">
-        INSERT INTO OPERATE_TYPE (id, user_id, operate_date, table_name, operate_type, remark) VALUES
-        (#{id}, #{userId}, #{operateDate}, #{tableName}, #{operateType}, #{remark})
+        INSERT INTO OPERATE_TYPE ( <include refid="BaseColumn" /> ) VALUES
+        (#{id}, #{userId}, #{operateDate}, #{tableName}, #{operateType}, #{remark}, #{status})
     </insert>
 
 </mapper>

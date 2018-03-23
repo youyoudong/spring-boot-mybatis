@@ -1,6 +1,6 @@
 package com.wangz.springBoot.service;
 
-import com.wangz.springBoot.bean.OperateLog;
+import com.wangz.springBoot.bean.OperateType;
 import com.wangz.springBoot.bean.User;
 import com.wangz.springBoot.dao.OperateTypeDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,14 +28,14 @@ public class OperateTypeService {
      * @return
      */
     public int insertOperateType(User user, String tableName, String typeId, String typeName){
-        OperateLog operateLog = new OperateLog();
-        operateLog.setId(UUID.randomUUID().toString().replaceAll("-", ""));
-        operateLog.setUserId(user.getId());
-        operateLog.setOperateDate(new Date());
-        operateLog.setTableName(tableName);
-        operateLog.setOperateType(typeId);
-        operateLog.setRemark("用户：" + user.getName() + "于" + new Date() + "对表：" + tableName + "进行了" + typeName + "操作");
+        OperateType operateType = new OperateType();
+        operateType.setId(UUID.randomUUID().toString().replaceAll("-", ""));
+        operateType.setUserId(user.getId());
+        operateType.setOperateDate(new Date());
+        operateType.setTableName(tableName);
+        operateType.setOperateType(typeId);
+        operateType.setRemark("用户：" + user.getName() + "于" + new Date() + "对表：" + tableName + "进行了" + typeName + "操作");
 
-        return operateTypeDao.insertOperateType(operateLog);
+        return operateTypeDao.insertOperateType(operateType);
     }
 }

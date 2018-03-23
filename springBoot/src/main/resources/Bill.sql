@@ -5,7 +5,8 @@ CREATE TABLE `bill` (
 	`bill_date` DATE NULL COMMENT '账单时间',
 	`bill_type_id` VARCHAR(50) NULL COMMENT '账单分类id',
 	`user_id` VARCHAR(50) NULL COMMENT '用户id',
-	`pay_type_id` VARCHAR(50) NULL COMMIT '支出分类id',
+	`pay_type_id` VARCHAR(50) NULL COMMENT '支出分类id',
+	`status` INTEGER NULL COMMENT '状态0正常1删除'
 )
 COMMENT='账单表'
 COLLATE='utf8_bin'

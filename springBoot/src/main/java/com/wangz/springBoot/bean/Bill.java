@@ -32,6 +32,9 @@ public class Bill {
     /* 账单分类信息 */
     private BillType billType;
 
+    /* 状态0正常1删除 */
+    private int status;
+
     /* 用户信息 */
     private User user;
 
@@ -97,6 +100,14 @@ public class Bill {
 
     public void setBillType(BillType billType) {
         this.billType = billType;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public User getUser() {

@@ -6,7 +6,7 @@ import java.util.Date;
  * 操作日志表operate_type
  * Created by wangz on 2017/10/22.
  */
-public class OperateLog {
+public class OperateType {
 
     /*  主键ID  */
     private String id;
@@ -25,6 +25,9 @@ public class OperateLog {
 
     /*  备注  */
     private String remark;
+
+    /* 状态0正常1删除 */
+    private int status;
 
     public String getId() {
         return id;
@@ -72,5 +75,13 @@ public class OperateLog {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }
