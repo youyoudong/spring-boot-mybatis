@@ -12,5 +12,8 @@
         <typeAlias alias="User" type="com.wangz.springBoot.bean.User" />
         <typeAlias alias="BillType" type="com.wangz.springBoot.bean.BillType" />
         <typeAlias alias="Bill" type="com.wangz.springBoot.bean.Bill" />
+        <typeAlias alias="OperateType" type="com.wangz.springBoot.bean.OperateType" />
+        <typeAlias alias="WishList" type="com.wangz.springBoot.bean.WishList" />
+        <typeAlias alias="Source" type="com.wangz.springBoot.bean.Source" />
     </typeAliases>
 </configuration>

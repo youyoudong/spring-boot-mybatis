@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 愿望清单相关SQL -->
+<mapper namespace="com.wangz.springBoot.dao.WishListDao">
+
+    <resultMap id="BaseResultMap" type="WishList">
+        <id column="id" property="id" javaType="String" jdbcType="VARCHAR" />
+        <result column="name" property="name" javaType="String" jdbcType="VARCHAR" />
+        <result column="source" property="source" javaType="String" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" javaType="Date" jdbcType="TIMESTAMP" />
+        <result column="create_price" property="createPrice" javaType="double" jdbcType="DOUBLE" />
+        <result column="update_time" property="updateTime" javaType="Date" jdbcType="TIMESTAMP" />
+        <result column="update_price" property="updatePrice" javaType="double" jdbcType="DOUBLE" />
+        <result column="status" property="status" javaType="Int" jdbcType="INTEGER" />
+        <result column="is_delete" property="isDelete" javaType="Int" jdbcType="INTEGER" />
+        <result column="user_id" property="userId" javaType="String" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <resultMap id="ResultMapWithUser" type="WishList" extends="BaseResultMap">
+        <association property="user_id" column="user" select="com.wangz.springBoot.dao.UserDao.getUserById" />
+    </resultMap>
+
+    <sql id="BaseColumn">
+        id, name, source, create_time, create_price, update_time, update_price, status, is_delete, user_id
+    </sql>
+
+    <!-- 新增WishList -->
+    <insert id="insertWishList" parameterType="WishList">
+        INSERT INTO wish_list ( <include refid="BaseColumn" /> )
+            VALUES
+        (#{id}, #{name}, #{source}, #{createTime}, #{createPrice}, #{updateTime}, #{updatePrice},
+         #{status}, #{isDelete}, #{userId})
+    </insert>
+
+</mapper>

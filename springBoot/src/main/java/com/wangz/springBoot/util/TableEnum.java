@@ -9,7 +9,9 @@ public enum TableEnum {
     BILL("bill"),
     BILLTYPE("bill_type"),
     USER("user"),
-    OPERATETYPE("operate_type");
+    OPERATETYPE("operate_type"),
+    WISHlIST("wish_list"),
+    SOURCE("source");
 
     private final String key;
 
