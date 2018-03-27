@@ -1,5 +1,9 @@
 CREATE TABLE `user` (
-	`id` VARCHAR(50) NULL COMMENT '主键id',
-	`name` VARCHAR(50) NULL COMMENT '用户名',
-	`status` INTEGER NULL COMMENT '状态0正常1删除'
+	`id` VARCHAR(50) NULL DEFAULT NULL,
+	`name` VARCHAR(50) NULL DEFAULT NULL,
+	`password` VARCHAR(50) NULL DEFAULT NULL,
+	`status` INT(11) NULL DEFAULT NULL COMMENT '状态0正常1删除'
 )
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;

@@ -45,4 +45,14 @@ public class UserService {
     public User getUserById(String id){
         return userDao.getUserById(id);
     }
+
+    /**
+     * 根据用户名密码查询用户是否存在
+     * @param name
+     * @param password
+     * @return user
+     */
+    public User getUserByNameAndPwd(String name, String password){
+        return userDao.getUserByNameAndPwd(name, password);
+    }
 }

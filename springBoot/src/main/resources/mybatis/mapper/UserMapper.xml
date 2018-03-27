@@ -8,25 +8,31 @@
     <resultMap id="BaseResultMap" type="User">
         <id column="id" property="id" javaType="String" jdbcType="VARCHAR" />
         <result column="name" property="name" javaType="String" jdbcType="VARCHAR" />
+        <result column="password" property="password" javaType="String" jdbcType="VARCHAR" />
         <result column="status" property="status" javaType="int" jdbcType="INTEGER" />
     </resultMap>
 
     <sql id="BaseColumn">
-        id, name, status
+        id, name, password, status
     </sql>
 
     <!-- 获取所有user -->
     <select id="getAll" resultMap="BaseResultMap">
-        SELECT id,name FROM USER
+        SELECT <include refid="BaseColumn" /> FROM USER
     </select>
 
     <!-- 插入user信息 -->
     <insert id="insert" parameterType="User">
-        INSERT INTO User ( <include refid="BaseColumn" /> ) VALUES (#{id}, #{name}, #{status})
+        INSERT INTO User ( <include refid="BaseColumn" /> ) VALUES (#{id}, #{name}, #{password}, #{status})
     </insert>
 
     <!-- 根据id获取user -->
     <select id="getUserById" resultMap="BaseResultMap" parameterType="String">
         SELECT <include refid="BaseColumn" /> FROM USER WHERE id = #{id}
+    </select>
+
+    <!-- 根据用户名密码查询用户是否存在 -->
+    <select id="getUserByNameAndPwd" resultMap="BaseResultMap">
+        SELECT <include refid="BaseColumn" /> FROM USER WHERE name = #{0} AND password = #{1}
     </select>
 </mapper>

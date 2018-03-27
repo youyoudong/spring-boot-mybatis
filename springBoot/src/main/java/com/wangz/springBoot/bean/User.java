@@ -12,6 +12,9 @@ public class User {
     /* 用户名 */
     private String name;
 
+    /* 密码 */
+    private String password;
+
     /* 状态0正常1删除 */
     private int status;
 
@@ -29,6 +32,14 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getStatus() {
