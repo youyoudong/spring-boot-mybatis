@@ -71,4 +71,12 @@ public class BillTypeService {
     public BillType selectBillTypeById(String id){
         return this.billTypeDao.selectBillTypeById(id);
     }
+
+    /**
+     * 分页查询billtype
+     * @return list<BillType>
+     */
+    public List<BillType> getPageList(){
+        return this.billTypeDao.getPageList();
+    }
 }

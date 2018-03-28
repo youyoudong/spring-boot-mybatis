@@ -47,7 +47,12 @@
 
     <!-- 根据id获取账单分类信息 -->
     <select id="selectBillTypeById" parameterType="String" resultMap="ResultMapForList">
-        SELECT <include refid="BaseColumn" /> FROM bill_type where parent_id IS NOT NULL
+        SELECT <include refid="BaseColumn" /> FROM bill_type where id = #{id}
+    </select>
+
+    <!-- 分页查询billtype信息 -->
+    <select id="getPageList" resultMap="ResultMapForList">
+        SELECT <include refid="BaseColumn" /> FROM bill_type where 1 = 1
     </select>
 
 </mapper>

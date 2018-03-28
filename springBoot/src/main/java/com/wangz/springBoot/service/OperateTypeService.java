@@ -3,6 +3,7 @@ package com.wangz.springBoot.service;
 import com.wangz.springBoot.bean.OperateType;
 import com.wangz.springBoot.bean.User;
 import com.wangz.springBoot.dao.OperateTypeDao;
+import com.wangz.springBoot.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +36,8 @@ public class OperateTypeService {
         operateType.setOperateDate(new Date());
         operateType.setTableName(tableName);
         operateType.setOperateType(typeId);
-        operateType.setRemark("用户：" + user.getName() + "于" + new Date() + "对表：" + tableName + "进行了" + typeName + "操作");
+        operateType.setRemark("用户：" + user.getName() + "于" + Utils.timeToString(new Date()) +
+                "对表：" + tableName + "进行了" + typeName + "操作");
 
         return operateTypeDao.insertOperateType(operateType);
     }

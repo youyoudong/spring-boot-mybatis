@@ -1,5 +1,7 @@
 package com.wangz.springBoot.controller;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.wangz.springBoot.bean.BillType;
 import com.wangz.springBoot.bean.OperateType;
 import com.wangz.springBoot.bean.User;
@@ -212,6 +214,22 @@ public class BillTypeController {
             resultMap.put("flag", false);
             resultMap.put("message", "params is null");
         }
+
+        return resultMap;
+    }
+
+    @RequestMapping("/getPageList")
+    public Map<String, Object> getPageList(@RequestBody Map<String, Object> params){
+
+        Map<String, Object> resultMap = new HashMap<String, Object>();
+        int pageNum = params.get("pageNum") != null ? (int) params.get("pageNum") : 1;
+        int pageSize = params.get("pageSize") != null ? (int) params.get("pageSize") : 20;
+
+        Page page = PageHelper.startPage(pageNum, pageSize, true);
+        List<BillType> list = this.billTypeService.getPageList();
+        resultMap.put("pageNum", pageNum);
+        resultMap.put("total", page.getTotal());
+        resultMap.put("list", list);
 
         return resultMap;
     }

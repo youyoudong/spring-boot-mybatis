@@ -51,4 +51,10 @@ public interface BillTypeDao {
      * @return
      */
     BillType selectBillTypeById(String id);
+
+    /**
+     * 分页查询billtype
+     * @return list<BillType>
+     */
+    List<BillType> getPageList();
 }
